@@ -30,9 +30,7 @@ const dbCon = require("./config/keys")
 
 mongoose
   .connect(
-    dbCon.url,
-    { useCreateIndex: true,
-      useNewUrlParser: true }
+    dbCon.url
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
@@ -55,6 +53,6 @@ app.get('/', (req, res) => res.send('Success Bgst !'));
 
 
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
