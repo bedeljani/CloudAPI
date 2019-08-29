@@ -11,6 +11,11 @@ const    multer = require('multer')
 const    fs = require('fs-extra')
 
 
+var http = require('http')
+
+
+
+
 
 
 // Bodyparser middleware
@@ -53,6 +58,7 @@ app.get('/', (req, res) => res.send('Success Bgst !'));
 
 
 
-const port = 80;
+var app_port = process.env.app_port || 8080;
 
-app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+http.createServer(app).listen(app_port)
+//app.listen(port, () => console.log(`Server up and running on port ${port} !`));
