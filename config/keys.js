@@ -1,5 +1,5 @@
 module.exports = {
-  'url' : 'mongodb://localhost:27017/AbahKos',
+  'url' : 'mongodb://habdrhm:DdkBjpywZX@mongodb.cloudno.de:27017',
   secretOrKey: "GalerTerus"
   
   
