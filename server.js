@@ -53,6 +53,6 @@ app.get('/', (req, res) => res.send('Success Bgst !'));
 
 
 
-const port =  80;
+const port = process.env.PORT || 80;
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
