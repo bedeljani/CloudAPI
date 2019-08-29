@@ -27,7 +27,7 @@ exports.create = (req, res) => {
       if (user) {
         return res.status(401).json({ message: "Email already exists" });
       } else {
-        const newUser = new User({
+        const user = new User({
           name: req.body.name,
           email: req.body.email,
           password: req.body.password
@@ -35,21 +35,21 @@ exports.create = (req, res) => {
     
         // Hash password before saving in database
         bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
+          bcrypt.hash(user.password, salt, (err, hash) => {
             if (err) throw err;
-            newUser.password = hash;
+            user.password = hash;
             
             const payload = {
-               newUser
+               user
               };
              // Token
         const token = jwt.sign(payload, SECRET, { expiresIn: 1440 })
         const response = {
-            newUser,
+            user,
             "token": token,
         }
             
-            newUser
+            user
               .save()
               .then(res.json(response))
               .catch(err => console.log(err));
