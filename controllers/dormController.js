@@ -18,7 +18,7 @@ exports.create = (req, res) =>{
           if(decodedToken === null){
             return res.status(400).json({ message: "Token is Null" });
           }
-          Dorm.find({_id :decodedToken.user._id})
+          Dorm.find({_id :decodedToken.newUser._id})
          .then( user => {
              console.log(user)
             if (!user) {
@@ -40,7 +40,7 @@ exports.create = (req, res) =>{
                     facilities : req.body.facilities.split(', ').map((i)=>(i)),
                     desc : req.body.desc, 
                     price : req.body.price,
-                    user : decodedToken.user._id   
+                    user : decodedToken.newUser._id   
                 }
               );
             
