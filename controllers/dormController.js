@@ -14,7 +14,7 @@ exports.create = (req, res) =>{
           
           const token = req.token
           const decodedToken =  jwt.decode(token, config.key)
-          console.log(decodedToken.user._id)
+          console.log(decodedToken)
           if(decodedToken === null){
             return res.status(400).json({ message: "Token is Null" });
           }
