@@ -1,14 +1,14 @@
 const express = require("express");
-      mongoose = require("mongoose");
-      bodyParser = require("body-parser");
-      passport = require("passport");
-      users = require("./routes/api/users");
-      dorm = require("./routes/api/dorm")
-      facilities = require('./routes/api/facilities')
-      app = express();
-      path = require('path');
-      multer = require('multer')
-      fs = require('fs-extra')
+const     mongoose = require("mongoose");
+const     bodyParser = require("body-parser");
+const    passport = require("passport");
+const   users = require("./routes/api/users");
+const   dorm = require("./routes/api/dorm")
+const  facilities = require('./routes/api/facilities')
+const    app = express();
+const    path = require('path');
+const    multer = require('multer')
+const    fs = require('fs-extra')
 
 
 
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 app.use('/api/public/', express.static('public'))
 //app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.Promise = global.Promise
+//mongoose.Promise = global.Promise
 
 // DB Config
 const dbCon = require("./config/keys")
